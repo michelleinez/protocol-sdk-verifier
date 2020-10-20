@@ -1,0 +1,45 @@
+{
+    "DeployKeys": {
+        "title": "Banque Communautaire",
+        "authAgency": "Kiva",
+        "authAgencyAcronym": "Kiva"
+    },
+    "Standard": {
+        "back": "Retour",
+        "accept": "Accepter",
+        "verify": "Vérifier",
+        "continue": "Continuer",
+        "poweredBy": "Alimenté par"
+    },
+    "Errors": {
+        "unknown": "Une erreur inconnue est survenue.",
+        "qr": {
+            "noInviteUrl": "Une erreur s'est produite lors de la création du code QR. Veuillez réessayer et contacter votre service informatique si l'erreur persiste.",
+            "connectionError": "Une erreur s'est produite lors de l'établissement d'une connexion. Veuillez réessayer et contacter votre service informatique si l'erreur persiste.",
+            "notConnected": "Veuillez scanner le code QR et établir une connexion avant de vérifier",
+            "noConnectionFound": "Aucun registre de la connexion [ {{connectionId}} ]"
+        }
+    },
+    "ConfirmationScreen": {
+        "text": {
+            "pleaseReview": "Veuillez demander au client d'examiner les informations suivantes",
+            "agreement-1": "J'accepte que les informations personnelles suivantes soient partagées avec",
+            "agreement-2": "dans le cadre de la vérification \"Connaissez votre client (KYC)\".",
+            "infoShareIncludes": "Les informations partagées incluent votre:"
+        }
+    },
+    "QR": {
+        "text": {
+            "retrieving": "Récupération de votre code QR. Veuillez être patient ...",
+            "scanQR": "Le citoyen doit scanner le code QR avec son portefeuille mobile.",
+            "connected": "Connection établie! Veuillez cliquer sur le bouton \"Vérifier\" ci-dessous ...",
+            "resetConnection": "Réinitialiser"
+        }
+    },
+    "UserDetails": {
+        "buttons": {
+            "exportProfile": "Exporter le registre",
+            "printProfile": "Imprimer le registre"
+        }
+    }
+}

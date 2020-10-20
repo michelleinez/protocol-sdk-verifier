@@ -1,0 +1,45 @@
+{
+    "DeployKeys": {
+        "title": "Kiva EKYC SDK",
+        "authAgency": "Kiva HQ",
+        "authAgencyAcronym": "Kiva"
+    },
+    "Standard": {
+        "back": "Regresar",
+        "accept": "Aceptar",
+        "verify": "Verificar",
+        "continue": "Continuar",
+        "poweredBy": "Desarrollado por"
+    },
+    "Errors": {
+        "unknownError": "Ha ocurrido un problema.",
+        "qr": {
+            "noInviteUrl": "Se produjo un error creando el código QR. Por favor intente de nuevo. Si el problema persiste, comuníquese con su equipo de IT.",
+            "connectionError": "Se produjo un error estableciendo una conexión. Por favor intente de nuevo. Si el problema persiste, comuníquese con su equipo de IT.",
+            "notConnected": "Por favor escanee el código QR y establezca una conexión antes de verificar.",
+            "noConnectionFound": "Ningún record con el código [ {{connectionId}} ] fue encontrado."
+        }
+    },
+    "ConfirmationScreen": {
+        "text": {
+            "pleaseReview": "Haga que el cliente revise la siguiente información",
+            "agreement-1": "Acepto que la siguiente información personal se compartirá con",
+            "agreement-2": "como parte de la verificación \"eKYC\".",
+            "infoShareIncludes": "La información compartida incluye su:"
+        }
+    },
+    "QR": {
+        "text": {
+            "retrieving": "Obteniendo su código QR. Por favor sea paciente...",
+            "scanQR": "El ciudadano debe escanear el código QR con su billetera móvil.",
+            "connected": "¡Conexión establecida! Haga clic en el botón \"Verificar\" a continuación...",
+            "resetConnection": "Reiniciar"
+        }
+    },
+    "UserDetails": {
+        "buttons": {
+            "exportProfile": "Exporte el registro",
+            "printProfile": "Imprima el registro"
+        }
+    }
+}

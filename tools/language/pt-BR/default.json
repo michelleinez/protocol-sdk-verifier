@@ -1,0 +1,45 @@
+{
+    "DeployKeys": {
+        "title": "Banco Comunitário",
+        "authAgency": "Kiva",
+        "authAgencyAcronym": "Kiva",
+    },
+    "Standard": {
+        "back": "Anterior",
+        "accept": "Aceitar",
+        "continue": "Continuar",
+        "verify": "Verificar",
+        "poweredBy": "Impulsionado por"
+    },
+    "Errors": {
+        "unknown": "Ocorreu um erro desconhecido.",
+        "qr": {
+            "noInviteUrl": "Ocorreu um erro ao criar o código QR. Por favor, tente novamente e entre em contato com o seu departamento de TI se o erro persistir.",
+            "connectionError": "Ocorreu um erro ao estabelecer uma conexão. Por favor, tente novamente e entre em contato com o seu departamento de TI se o erro persistir.",
+            "notConnected": "Por favor, Leia o QR code e estabeleça uma conexão antes de verificar.",
+            "noConnectionFound": "Registro de conexão [ {{connectionId}} ] não encontrado"
+        }
+    },
+    "ConfirmationScreen": {
+        "text": {
+            "pleaseReview": "Por favor, peça ao cliente que revise as seguintes informações",
+            "agreement-1": "Eu concordo que as seguintes informações pessoais serão compartilhadas com",
+            "agreement-2": "como parte da verificação \"Know Your Customer\".",
+            "infoShareIncludes": "Informações compartilhadas incluem seu:"
+        }
+    },
+    "QR": {
+        "text": {
+            "retrieving": "Recuperando seu código QR. Por favor, seja paciente...",
+            "scanQR": "O cidadão deve escanear o código QR com sua carteira móvel.",
+            "connected": "Conexão estabelecida! Por favor, clique no botão \"Verify\" abaixo...",
+            "resetConnection": "Restabelecer"
+        }
+    },
+    "UserDetails": {
+        "buttons": {
+            "exportProfile": "Exportar perfil",
+            "printProfile": "Imprimir perfil"
+        }
+    }
+}

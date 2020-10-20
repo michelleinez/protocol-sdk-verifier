@@ -1,0 +1,58 @@
+{
+    "headerImage": "kiva_small.jpeg",
+    "locale": "en",
+    "agent_port": "7567",
+    "controllerUrlBase": "http://localhost:3014",
+    "verification_options": [
+        {
+            "id": "Kiva_QR",
+            "title": "Kiva Cloud Agent",
+            "description": "Customer will use the Kiva Cloud Agent to establish a connection and provide credentials for proofs.",
+            "guardian": false,
+            "sequence": ["agency_qr"]
+        }
+    ],
+    "pii_map": {
+        "nationalId": {
+            "name": "National ID",
+            "rendered": true
+        },
+        "firstName": {
+            "name": "First Name",
+            "rendered": true
+        },
+        "lastName": {
+            "name": "Last Name",
+            "rendered": true
+        },
+        "birthDate": {
+            "name": "Birth Date",
+            "rendered": true,
+            "wide": true
+        },
+        "photo~attach": {
+            "name": "Photo",
+            "alternateKey": "photoHash"
+        }
+    },
+    "env": {
+        "prod": {
+            "permittedOrigins": "https://www.kiva.org",
+            "actions": {
+                "includeOnly": ["reset", "enableStandalone"]
+            },
+            "permittedIframeHosts": ["https://www.kiva.org"],
+            "isProd": true
+        },
+        "sandbox": {
+            "inherits": ["prod"]
+        },
+        "qa": {
+            "permittedOrigins": "http://localhost:8080,http://localhost:3000,https://www.kiva.org",
+            "permittedIframeHosts": ["https://www.kiva.org", "http://localhost:3000", "http://localhost:8080"]
+        },
+        "dev": {
+            "inherits": ["qa"]
+        }
+    }
+}

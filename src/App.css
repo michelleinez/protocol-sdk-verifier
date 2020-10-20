@@ -1,0 +1,93 @@
+@import url("Reset.scss");
+@import url(~@blueprintjs/core/lib/css/blueprint.css);
+@import url(~@blueprintjs/icons/lib/css/blueprint-icons.css);
+sup {
+  font-size: 15px;
+  vertical-align: sub;
+  font-weight: bold;
+  margin: 0px 2px; }
+
+body {
+  font-family: Montserrat, sans-serif !important;
+  font-weight: lighter;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility; }
+
+.Kernel {
+  display: flex;
+  flex-direction: column; }
+
+.Page {
+  position: relative; }
+
+footer {
+  background: #f2f2f2;
+  height: 150px;
+  font-size: 16px; }
+  footer h4 {
+    font-weight: bold;
+    margin-bottom: 5px; }
+  footer p {
+    text-align: left;
+    line-height: 20px;
+    font-size: 12px; }
+  footer a {
+    text-decoration: none;
+    margin: 5px 0px 5px 0px;
+    color: #000; }
+    footer a.product {
+      font-weight: bold; }
+  footer .layout {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%; }
+    footer .layout .col {
+      flex-grow: 0;
+      width: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      height: 100px; }
+    footer .layout #copy {
+      flex-grow: 1;
+      min-width: 200px;
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center; }
+    footer .layout h2 {
+      font-weight: bold;
+      font-size: 20px; }
+
+.bp3-button {
+  margin-left: 10px; }
+
+@media screen and (max-width: 425px) {
+  footer {
+    height: auto;
+    padding-top: 20px; }
+    footer #copy {
+      display: none; }
+    footer .layout {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly; }
+      footer .layout .col {
+        margin-bottom: 10px; } }
+
+.BankLogo {
+  background: url(/images/Ecobank_Logo_EN.png) no-repeat center center;
+  background-size: contain;
+  width: 100px;
+  height: 50px;
+  cursor: pointer;
+  opacity: 0.8; }
+
+.BankLogo:hover {
+  opacity: 1; }
