@@ -1,6 +1,6 @@
 import {IBaseAgent} from "../interfaces/AgentInterfaces";
 
-export default class Agent implements IBaseAgent {
+export default class BaseAgent implements IBaseAgent {
 
     async baseFunction(request: Promise<any>, callback: (data: any) => any, error?: string): Promise<any> {
         try {

@@ -1,7 +1,7 @@
 {
     "DeployKeys": {
-        "title": "Kiva EKYC SDK",
-        "authAgency": "Kiva HQ",
+        "title": "Banco Comunitario",
+        "authAgency": "Kiva",
         "authAgencyAcronym": "Kiva"
     },
     "Standard": {
@@ -26,6 +26,11 @@
             "agreement-1": "Acepto que la siguiente información personal se compartirá con",
             "agreement-2": "como parte de la verificación \"eKYC\".",
             "infoShareIncludes": "La información compartida incluye su:"
+        }
+    },
+    "AuthMenu": {
+        "text": {
+            "selectVerification": "Seleccione un método de verificación"
         }
     },
     "QR": {

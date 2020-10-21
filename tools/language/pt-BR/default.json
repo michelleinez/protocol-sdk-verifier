@@ -28,6 +28,11 @@
             "infoShareIncludes": "Informações compartilhadas incluem seu:"
         }
     },
+    "AuthMenu": {
+        "text": {
+            "selectVerification": "Selecione um método de verificação"
+        }
+    },
     "QR": {
         "text": {
             "retrieving": "Recuperando seu código QR. Por favor, seja paciente...",

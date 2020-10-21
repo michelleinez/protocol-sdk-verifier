@@ -1,0 +1,50 @@
+{
+    "DeployKeys": {
+        "title": "Banca Comunitaria",
+        "authAgency": "Kiva",
+        "authAgencyAcronym": "Kiva",
+    },
+    "Standard": {
+        "back": "Indietro",
+        "accept": "Accetta",
+        "verify": "Verifica",
+        "continue": "Prosegue",
+        "poweredBy": "Operato da"
+    },
+    "Errors": {
+        "unknown": "Si è verificato un errore sconosciuto.",
+        "qr": {
+            "noInviteUrl": "Si è verificato un errore durante la creazione del codice QR. Riprova e contatta il reparto IT se l'errore persiste.", 
+            "connectionError": "Si è verificato un errore durante la creazione di una connessione. Riprova e contatta il reparto IT se l'errore persiste.", 
+            "notConnected": "Si prega di scansionare il codice QR e stabilire una connessione prima di verificare.",
+            "noConnectionFound": "Impossibile trovare un record di connessione [ {{connectionId}} ]"
+        }
+    },
+    "ConfirmationScreen": {
+        "text": {
+            "pleaseReview": "Chiedi al cliente di esaminare le seguenti informazioni",
+            "agreement-1": "Accetto che le seguenti informazioni personali vengano condivise con",
+            "agreement-2": "come parte della verifica \"Conosci il proprio cliente (KYC)\".",
+            "infoShareIncludes": "Le informazioni condivise includono il tuo:"
+        }
+    },
+    "AuthMenu": {
+        "text": {
+            "selectVerification": "Seleziona un metodo di verifica"
+        }
+    },
+    "QR": {
+        "text": {
+            "retrieving": "Recupero del tuo codice QR. Si prega di essere pazienti...",
+            "scanQR": "Il cittadino dovrebbe scansionare il codice QR con il proprio portafoglio mobile.",
+            "connected": "Connessione stabilita! Fai clic sul pulsante \"Verifica\" di seguito ...",
+            "resetConnection": "Ripristina"
+        }
+    },
+    "UserDetails": {
+        "buttons": {
+            "exportProfile": "Esportare registrazione",
+            "printProfile": "Stampare registrazione"
+        }
+    }
+}
