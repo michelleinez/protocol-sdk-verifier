@@ -1,6 +1,8 @@
 # Protocol Verifier
 Web SDK to embed SSI credential verification capabilities in existing applications.
 
+![Build Status](https://github.com/kiva/protocol-sdk-verifier/workflows/build-main/badge.svg)
+
 ## Before You Start
 
 This SDK is designed to be flexible enough to accommodate either an Aries agent running locally on your machine, or a cloud agent. If you already have one of these set up, you can skip this section, but if you don't and would still like to try out the platform, keep reading.
