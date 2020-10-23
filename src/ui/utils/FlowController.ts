@@ -90,10 +90,10 @@ export default class FlowController {
             folded[sequence[0]]['BACK'] = 'confirmation';
         }
 
-        for (let i = 1; i < sequence.length - 2; i++) {
+        for (let i = 1; i <= sequence.length - 2; i++) {
             folded[sequence[i]] = {
-                BACK: [sequence[i - 1]],
-                NEXT: [sequence[i + 1]]
+                BACK: sequence[i - 1],
+                NEXT: sequence[i + 1]
             };
         }
 
