@@ -38,7 +38,10 @@ class ConstantBuilder {
             'verification_options',
             'agent_port',
             'headerImage',
-            'controllerUrlBase'
+            'controllerUrlBase',
+            'auth_endpoints',
+            'phoneIntls',
+            'permittedOpenerOrigins'
         ];
         constants.forEach((c, idx) => {
             this.setVariable(c);

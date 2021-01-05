@@ -14,18 +14,21 @@ export default class KivaAgent extends BaseAgent implements IAgent {
     private _connectionId?: string;
     private _verificationId?: string;
 
-    static init(): KivaAgent {
-        return new KivaAgent();
+    static init(token: string): KivaAgent {
+        return new KivaAgent(token);
     }
 
-    constructor() {
+    constructor(token: string) {
         super();
         const config: any = {
-            baseURL: CONSTANTS.controllerUrlBase
+            baseURL: CONSTANTS.controllerUrlBase,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            }
         };
         const axiosConfig: AxiosRequestConfig = config;
         this.axiosInstance = axios.create(axiosConfig);
-        
+
     }
 
     isConnected(response: any): boolean {
@@ -59,7 +62,7 @@ export default class KivaAgent extends BaseAgent implements IAgent {
 
     establishConnection = async (ignore: string) => {
         return super.establish(
-            this.axiosInstance.post('/v2/mobile/connection', {}),
+            this.axiosInstance.post('/v2/kiva/api/connection', {},),
             (connection: any) => {
                 this._connectionId = connection.data.connection_id;
                 return btoa(JSON.stringify(connection.data.invitation));
@@ -70,7 +73,7 @@ export default class KivaAgent extends BaseAgent implements IAgent {
 
     getConnection = async (ignore: string) => {
         return super.check(
-            this.axiosInstance.get('/v2/mobile/connection/' + this._connectionId),
+            this.axiosInstance.get('/v2/kiva/api/connection/' + this._connectionId),
             this.getData,
             I18n.computeKey({
                 connectionId: this._connectionId
@@ -80,7 +83,7 @@ export default class KivaAgent extends BaseAgent implements IAgent {
 
     checkVerification = async (ignore: string) => {
         return super.prove(
-            this.axiosInstance.get('/v2/mobile/verify/' + this._verificationId),
+            this.axiosInstance.get('/v2/kiva/api/verify/' + this._verificationId),
             this.getData,
             I18n.getKey('UNKNOWN_ERROR')
         );
@@ -88,9 +91,9 @@ export default class KivaAgent extends BaseAgent implements IAgent {
 
     sendVerification = async (connectionId: string): Promise<string> => {
         return super.send(
-            this.axiosInstance.post('/v2/mobile/verify', {
-                connection_id: this._connectionId,
-                proof_profile_path: "unrestricted.proof.request.json"
+            this.axiosInstance.post('/v2/kiva/api/verify', {
+                connectionId: this._connectionId,
+                profile: "employee.proof.request.json"
             }),
             (verification: any) => {
                 this._verificationId = verification.data.presentation_exchange_id;

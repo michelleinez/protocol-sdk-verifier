@@ -10,9 +10,21 @@ export interface Constants {
     direction: string,
     agent_port: string,
     headerImage: string,
-    controllerUrlBase: string
+    controllerUrlBase: string,
+    auth_endpoints?: EndpointsMap,
+    phoneIntls?: CountryCodeConfig,
+    permittedOpenerOrigins: string[]
 }
 
 export interface MessageMap {
     [index: string]: string
+}
+
+interface EndpointsMap {
+    [index: string]: string
+}
+
+interface CountryCodeConfig {
+    only: boolean,
+    countries: string[];
 }

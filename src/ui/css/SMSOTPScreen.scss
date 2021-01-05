@@ -1,50 +1,6 @@
 @import "mixins/_fonts";
 @import "mixins/_colors";
 
-.qr-loading-title {
-    color: $secondary-offset !important;
-    padding-top: 15px;
-}
-
-.button-verify:disabled {
-    background: gray !important;
-    color: white !important;
-}
-
-#qr-loader {
-    display: flex;
-    justify-content: center;
-}
-
-.qr-icon {
-    position: absolute;
-    margin-top: 0;
-    background: #fff;
-    border-radius: 50%;
-}
-
-#qr-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.qrButtons {
-    padding-top: 30px;
-    margin-bottom: 30px;
-    button {
-        margin: 100px 20px;
-        text-transform: none;
-        font-size: 1.2em !important;
-        width: 200px;
-    }
-}
-
-.qr-reset {
-    background-color: salmon !important;
-    color: #fff !important;
-}
-
 .centered {
   text-align: center;
   margin-left: auto;
@@ -67,6 +23,7 @@
 }
 
 .dialog-icon {
+    margin-top: 20px;
     width: 56px !important;
     height: 56px !important;
     &.error {
@@ -85,4 +42,43 @@
     &.verifying {
         color: $primary-color;
     }
+}
+
+.phone-number-input {
+  min-width: 100%;
+}
+
+.smsButtons {
+  button {
+    margin: 100px 50px;
+    text-transform: none;
+    font-size: 1.2em !important;
+    width: 200px;
+  }
+}
+
+#otp-row {
+  flex-direction: row;
+}
+
+.otp-digit-input {
+  width: 100px;
+  padding: 0 15px !important;
+  input {
+    font-size: 2em;
+  }
+}
+
+button {
+  @include the-font;
+  margin: 10px 200px;
+  &.back {
+    background: $secondary-color !important;
+    opacity: 0.5;
+    color: $secondary-offset !important;
+  }
+  &.next {
+    background: $primary-color !important;
+    color: $primary-offset;
+  }
 }

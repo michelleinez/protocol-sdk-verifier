@@ -18,6 +18,7 @@ import {flowController} from "../KernelContainer";
 import I18n from '../utils/I18n';
 import LocalAgent from '../agents/LocalAgent';
 import KivaAgent from '../agents/KivaAgent';
+import auth from '../utils/AuthService';
 
 import "../css/Common.css";
 import "../css/QRScreen.css";
@@ -35,7 +36,8 @@ export default class AgencyQR extends React.Component<QRProps, QRState> {
             retrievingInviteUrl: true,
             inviteUrl: "",
             connectionError: "",
-            verifying: false
+            verifying: false,
+            isConnectionReady: false,
         };
         this.agent = this.determineCloudAgent();
     }
@@ -55,7 +57,7 @@ export default class AgencyQR extends React.Component<QRProps, QRState> {
                 return LocalAgent.init();
             case "Kiva_QR":
             default:
-                return KivaAgent.init();
+                return KivaAgent.init(auth.getToken());
         }
     }
 
@@ -80,10 +82,8 @@ export default class AgencyQR extends React.Component<QRProps, QRState> {
         try {
             const connectionId: string = uuid4();
             const url: string = await this.agent.establishConnection(connectionId);
-
             this.props.setConnectionId(connectionId);
             this.setInviteUrl(url);
-
             this.pollConnection(connectionId);
         } catch (e) {
             console.log(e);
@@ -94,8 +94,8 @@ export default class AgencyQR extends React.Component<QRProps, QRState> {
     pollConnection = async (connectionId: string) => {
         try {
             let connectionStatus: any = await this.agent.getConnection(connectionId);
-
             if (this.agent.isConnected(connectionStatus)) {
+                this.setState({isConnectionReady: true});
                 this.props.verifyConnection(true);
             } else if (!cancel) {
                 setTimeout(() => {
@@ -111,7 +111,6 @@ export default class AgencyQR extends React.Component<QRProps, QRState> {
     pollVerification = async (verificationId: string) => {
         try {
             let verificationStatus: any = await this.agent.checkVerification(verificationId);
-
             if (this.agent.isVerified(verificationStatus)) {
                 this.acceptProof(this.agent.getProof(verificationStatus));
             } else if (!cancel) {
@@ -152,7 +151,6 @@ export default class AgencyQR extends React.Component<QRProps, QRState> {
         try {
             const id: string = this.settleConnectionId();
             const verification: any = await this.agent.sendVerification(id);
-;
             this.pollVerification(verification);
         } catch (e) {
             console.log(e);
@@ -197,6 +195,7 @@ export default class AgencyQR extends React.Component<QRProps, QRState> {
         this.props.setConnectionId('');
         this.props.verifyConnection(false);
         this.setState({
+            isConnectionReady: false,
             verifying: false
         }, () => this.startProcess(true));
     }
@@ -269,6 +268,7 @@ export default class AgencyQR extends React.Component<QRProps, QRState> {
     }
 
     render() {
+        const {isConnectionReady} = this.state;
         return (
             <div id={this.props.agentType} className="flex-block column">
                 <Grid container
@@ -278,6 +278,7 @@ export default class AgencyQR extends React.Component<QRProps, QRState> {
                         {this.renderBody()}
                 </Grid>
                 <QRScreenButtons
+                    isConnectionReady={isConnectionReady}
                     onClickBack={() => flowController.goTo('BACK')}
                     onSubmit={() => this.startVerification()}
                     onReset={() => this.resetFlow()}
@@ -313,9 +314,10 @@ class QRScreenButtons extends React.Component<QRButtonProps> {
                 </Grid>
                 <Grid item>
                     <Button
+                        disabled={!this.props.isConnectionReady}
                         type="submit"
                         data-cy="qr-scan-next"
-                        className="next"
+                        className="next button-verify"
                         onSubmit={this.props.onSubmit}
                         onClick={this.props.onSubmit}>
                         {I18n.getKey('VERIFY')}
