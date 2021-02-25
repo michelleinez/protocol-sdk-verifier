@@ -11,7 +11,7 @@ import {CONSTANTS} from "../../constants/constants";
 import {DetailsProps, PhotoAttach} from "../interfaces/DetailsInterfaces";
 import {CredentialKeyMap} from "../interfaces/ConfirmationProps";
 
-const PII: CredentialKeyMap = CONSTANTS.credentialKeyMap;
+const CredentialKeys: CredentialKeyMap = CONSTANTS.credentialKeyMap;
 
 const wideKeys: string[] = [];
 const itemList: any = {};
@@ -19,7 +19,7 @@ const itemList: any = {};
 export default class ResultDetails extends React.Component<DetailsProps> {
 
   renderFields(title: string, fields: any) {
-    this.processPII();
+    this.processCredentialKeys();
     const items: any[] = [];
     const wideItemKeys: string[] = [
       "DID",
@@ -49,12 +49,12 @@ export default class ResultDetails extends React.Component<DetailsProps> {
     </div>
   }
 
-  processPII() {
-    for (let k in PII) {
-      let key: string = PII[k].alternateKey || k,
-        name: string = PII[k].alternateName || PII[k].name,
-        rendered: boolean = PII[k].rendered || false,
-        isWide: boolean = PII[k].wide || false;
+  processCredentialKeys() {
+    for (let k in CredentialKeys) {
+      let key: string = CredentialKeys[k].alternateKey || k,
+        name: string = CredentialKeys[k].alternateName || CredentialKeys[k].name,
+        rendered: boolean = CredentialKeys[k].rendered || false,
+        isWide: boolean = CredentialKeys[k].wide || false;
 
       if (isWide) {
         wideKeys.push(name);
