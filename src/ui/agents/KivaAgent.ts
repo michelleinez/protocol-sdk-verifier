@@ -3,11 +3,11 @@ import I18n from '../utils/I18n';
 import BaseAgent from './BaseAgent';
 
 import {IAgent} from '../interfaces/AgentInterfaces';
-import {PIImap} from '../interfaces/ConfirmationProps';
+import {CredentialKeyMap} from '../interfaces/ConfirmationProps';
 
 import {CONSTANTS} from '../../constants/constants';
 
-const PII: PIImap = CONSTANTS.pii_map;
+const PII: CredentialKeyMap = CONSTANTS.credentialKeyMap;
 
 export default class KivaAgent extends BaseAgent implements IAgent {
     public axiosInstance: AxiosInstance;
@@ -93,7 +93,7 @@ export default class KivaAgent extends BaseAgent implements IAgent {
         return super.send(
             this.axiosInstance.post('/v2/kiva/api/verify', {
                 connectionId: this._connectionId,
-                profile: "employee.proof.request.json"
+                profile: CONSTANTS.credentialProof
             }),
             (verification: any) => {
                 this._verificationId = verification.data.presentation_exchange_id;
