@@ -25,46 +25,79 @@
     "pii_map": {
         "firstName": {
             "name": "First Name",
-            "rendered": true
+            "rendered": true,
+            "proofs": {
+                "employee.proof.request.json": true
+            }
         },
         "lastName": {
             "name": "Last Name",
-            "rendered": true
+            "rendered": true,
+            "proofs": {
+                "employee.proof.request.json": true
+            }
         },
         "companyEmail": {
             "name": "Company Email",
-            "rendered": true
+            "rendered": true,
+            "proofs": {
+                "employee.proof.request.json": true
+            }
         },
         "hireDate": {
             "name": "Hire Date",
-            "rendered": true
+            "rendered": true,
+            "proofs": {
+                "employee.proof.request.json": true
+            }
         },
         "currentTitle": {
             "name": "Current Title",
-            "rendered": true
+            "rendered": true,
+            "proofs": {
+                "employee.proof.request.json": true
+            }
         },
         "team": {
             "name": "Team",
-            "rendered": true
+            "rendered": true,
+            "proofs": {
+                "employee.proof.request.json": true
+            }
         },
         "officeLocation": {
             "name": "Office Location",
-            "rendered": true
+            "rendered": true,
+            "proofs": {
+                "employee.proof.request.json": true
+            }
         },
         "type": {
             "name": "Employment Type",
-            "rendered": true
+            "rendered": true,
+            "proofs": {
+                "employee.proof.request.json": true
+            }
         },
         "endDate": {
             "name": "End Date",
-            "rendered": true
-        },
-        "phoneNumber": {
-            "name": "Phone Number",
-            "rendered": true
+            "rendered": true,
+            "proofs": {
+                "employee.proof.request.json": true
+            }
         },
         "photo~attach": {
-            "name": "Photo"
+            "name": "Photo",
+            "proofs": {
+                "employee.proof.request.json": true
+            }
+        },
+        "Phone": {
+            "name": "Phone",
+            "rendered": true,
+            "proofs": {
+                "employee.proof.request.json": true
+            }
         }
     },
     "phoneIntls": {
@@ -78,6 +111,7 @@
                 "includeOnly": ["reset", "enableStandalone"]
             },
             "permittedIframeHosts": ["https://www.kiva.org"],
+            "permittedOpenerOrigins": ["https://pro-cluster-kiva.web.app"],
             "isProd": true
         },
         "sandbox": {
@@ -86,6 +120,7 @@
         "qa": {
             "controllerUrlBase": "https://sandbox-gateway.protocol-prod.kiva.org",
             "permittedOrigins": "http://localhost:8080,http://localhost:3000,https://www.kiva.org",
+            "permittedOpenerOrigins": ["https://pro-cluster-kiva.web.app", "http://localhost:3000"],
             "permittedIframeHosts": ["https://www.kiva.org", "http://localhost:3000", "http://localhost:8080"]
         },
         "dev": {

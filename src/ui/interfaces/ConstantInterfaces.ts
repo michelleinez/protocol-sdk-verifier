@@ -13,7 +13,8 @@ export interface Constants {
     controllerUrlBase: string,
     auth_endpoints?: EndpointsMap,
     phoneIntls?: CountryCodeConfig,
-    permittedOpenerOrigins: string[]
+    permittedOpenerOrigins: string[],
+    credentialProof: any
 }
 
 export interface MessageMap {

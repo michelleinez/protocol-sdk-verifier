@@ -93,7 +93,7 @@ export default class KivaAgent extends BaseAgent implements IAgent {
         return super.send(
             this.axiosInstance.post('/v2/kiva/api/verify', {
                 connectionId: this._connectionId,
-                profile: "employee.proof.request.json"
+                profile: CONSTANTS.credentialProof
             }),
             (verification: any) => {
                 this._verificationId = verification.data.presentation_exchange_id;

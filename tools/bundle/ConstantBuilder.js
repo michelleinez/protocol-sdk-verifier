@@ -33,7 +33,6 @@ class ConstantBuilder {
         const constants = [
             'permittedOrigins',
             'permittedOriginPatterns',
-            'pii_map',
             'isProd',
             'verification_options',
             'agent_port',
@@ -41,12 +40,14 @@ class ConstantBuilder {
             'controllerUrlBase',
             'auth_endpoints',
             'phoneIntls',
-            'permittedOpenerOrigins'
+            'permittedOpenerOrigins',
+            'credentialProof'
         ];
         constants.forEach((c, idx) => {
             this.setVariable(c);
         });
         this.setTextDirection();
+        this.createPIIMap();
     }
 
     setTextDirection() {
@@ -54,6 +55,31 @@ class ConstantBuilder {
             this.variables['direction'] = 'rtl';
         } else {
             this.variables['direction'] = 'ltr';
+        }
+    }
+
+    createPIIMap() {
+        this.variables['pii_map'] = {};
+
+        const pii_map = this.variables['pii_map'];
+
+        if (this.conf.credentialProof) {
+            if ('string' === typeof this.conf.credentialProof) {
+                this.conf.credentialKeys && this.parseCredentialKeys(pii_map);
+            } else {
+                // Assumes that the credentialProof is an object. Don't yet know how this would be used, and might not be the right implementation
+                // TODO: Write logic that creates an opinion about the schema of credentialProof as an object.
+            }
+        }
+    }
+
+    parseCredentialKeys(pii_map) {
+        const keys = this.conf.credentialKeys;
+        for (let k in keys) {
+            if (keys[k].proofs[this.conf.credentialProof]) {
+                pii_map[k] = keys[k];
+                delete pii_map[k].proofs;
+            }
         }
     }
 }
