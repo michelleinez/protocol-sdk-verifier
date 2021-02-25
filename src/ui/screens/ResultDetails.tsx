@@ -9,9 +9,9 @@ import I18n from '../utils/I18n';
 import {CONSTANTS} from "../../constants/constants";
 
 import {DetailsProps, PhotoAttach} from "../interfaces/DetailsInterfaces";
-import {PIImap} from "../interfaces/ConfirmationProps";
+import {CredentialKeyMap} from "../interfaces/ConfirmationProps";
 
-const PII: PIImap = CONSTANTS.pii_map;
+const PII: CredentialKeyMap = CONSTANTS.credentialKeyMap;
 
 const wideKeys: string[] = [];
 const itemList: any = {};

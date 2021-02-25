@@ -1,11 +1,11 @@
-import {PIImap} from "./ConfirmationProps";
+import {CredentialKeyMap} from "./ConfirmationProps";
 import {AuthOption} from "./AuthOptionInterfaces";
 
 export interface Constants {
     verification_options: AuthOption[],
     permittedOrigins: string,
     permittedOriginPatterns?: string,
-    pii_map: PIImap,
+    credentialKeyMap: CredentialKeyMap,
     isProd?: boolean,
     direction: string,
     agent_port: string,

@@ -1,0 +1,45 @@
+{
+    "firstName": {
+        "name": "First Name",
+        "rendered": true
+    },
+    "lastName": {
+        "name": "Last Name",
+        "rendered": true
+    },
+    "companyEmail": {
+        "name": "Company Email",
+        "rendered": true
+    },
+    "hireDate": {
+        "name": "Hire Date",
+        "rendered": true
+    },
+    "currentTitle": {
+        "name": "Current Title",
+        "rendered": true
+    },
+    "team": {
+        "name": "Team",
+        "rendered": true
+    },
+    "officeLocation": {
+        "name": "Office Location",
+        "rendered": true
+    },
+    "type": {
+        "name": "Employment Type",
+        "rendered": true
+    },
+    "endDate": {
+        "name": "End Date",
+        "rendered": true
+    },
+    "photo~attach": {
+        "name": "Photo"
+    },
+    "Phone": {
+        "name": "Phone",
+        "rendered": true
+    }
+}

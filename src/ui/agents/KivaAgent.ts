@@ -3,11 +3,11 @@ import I18n from '../utils/I18n';
 import BaseAgent from './BaseAgent';
 
 import {IAgent} from '../interfaces/AgentInterfaces';
-import {PIImap} from '../interfaces/ConfirmationProps';
+import {CredentialKeyMap} from '../interfaces/ConfirmationProps';
 
 import {CONSTANTS} from '../../constants/constants';
 
-const PII: PIImap = CONSTANTS.pii_map;
+const PII: CredentialKeyMap = CONSTANTS.credentialKeyMap;
 
 export default class KivaAgent extends BaseAgent implements IAgent {
     public axiosInstance: AxiosInstance;
