@@ -25,12 +25,10 @@ export default class EmailScreen extends React.Component<EmailProps, EmailState>
 
     handleInputChange = () => (e: any) => {
         const email: string = e.target.value;
-        console.log(email);
         this.setState({email});
     }
 
     continue = () => (e: any) => {
-        console.log(e);
         e.preventDefault();
         if (!this.state.email) {
             notify.show(I18n.getKey('NO_EMAIL'), 'error', 3000);

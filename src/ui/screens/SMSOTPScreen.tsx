@@ -27,8 +27,7 @@ import "../css/Common.scss";
 
 const SDK: GuardianSDK = GuardianSDK.init({
     endpoint: '/v2/kiva/api/guardian/verify',
-    auth_method: 'SMS',
-    token: auth.getToken()
+    auth_method: 'SMS'
 });
 
 export default class SMSOTPScreen extends React.Component<SMSProps, OTPState> {
@@ -148,7 +147,7 @@ class PhoneNumberScreen extends React.Component<PhoneScreenProps, PhoneState> {
     }
 
     sendTwilioRequest = (body: any): void => {
-        SDK.fetchKyc(body)
+        SDK.fetchKyc(body, auth.getToken())
         .then(response => {
             this.props.setContainerState({
                 smsSent: true,
@@ -297,7 +296,7 @@ class OTPScreen extends React.Component<OTPScreenProps, OTPInputState> {
 
     sendTwilioRequest = async (body: any): Promise<void> => {
         try {
-            const data = await SDK.fetchKyc(body);
+            const data = await SDK.fetchKyc(body, auth.getToken());
             this.setState({
                 requestInProgress: false,
                 idVerified: true
