@@ -50,7 +50,7 @@ export default class KivaAgent extends BaseAgent implements IAgent {
         // TODO: Define an actual credential schema structure so that we can know that we're mapping data to actual PII map keys
         const proof: any = {};
         for (let key in response) {
-            let k: string = PII[key].alternateKey || key;
+            let k: string = PII[key]?.alternateKey || key;
             proof[k] = response[key].raw;
         }
         return proof;

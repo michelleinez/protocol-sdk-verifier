@@ -38,7 +38,7 @@
     "photo~attach": {
         "name": "Photo"
     },
-    "Phone": {
+    "phoneNumber": {
         "name": "Phone",
         "rendered": true
     }
