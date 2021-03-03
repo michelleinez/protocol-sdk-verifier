@@ -89,14 +89,14 @@ class Screen extends React.Component<ScreenProps, ScreenState> {
 
     renderByName() {
         switch (this.props.screen) {
-            case "agency_qr":
-                return this.renderAgencyQR();
-            case "smsotp":
-                return this.renderSmsOtp();
-            case "email_input":
-                return this.renderEmail();
-            default:
-                return "";
+        case "agency_qr":
+            return this.renderAgencyQR();
+        case "smsotp":
+            return this.renderSmsOtp();
+        case "email_input":
+            return this.renderEmail();
+        default:
+            return "";
         }
     }
 

@@ -13,11 +13,6 @@ export interface OTPState {
     phoneScreen: string
 }
 
-interface SMSCredentials {
-    phoneNumber: string,
-    email: string
-}
-
 export interface SMSData {
     smsSent: boolean,
     phoneNumber: string,

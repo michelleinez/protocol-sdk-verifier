@@ -53,11 +53,11 @@ export default class AgencyQR extends React.Component<QRProps, QRState> {
 
     determineCloudAgent = (): IAgent => {
         switch (this.props.agentType) {
-            case "Local_QR":
-                return LocalAgent.init();
-            case "Kiva_QR":
-            default:
-                return KivaAgent.init(auth.getToken());
+        case "Local_QR":
+            return LocalAgent.init();
+        case "Kiva_QR":
+        default:
+            return KivaAgent.init(auth.getToken());
         }
     }
 
@@ -281,7 +281,7 @@ export default class AgencyQR extends React.Component<QRProps, QRState> {
                     direction="column"
                     justify="center"
                     alignItems="center">
-                        {this.renderBody()}
+                    {this.renderBody()}
                 </Grid>
                 <QRScreenButtons
                     isConnectionReady={isConnectionReady}
