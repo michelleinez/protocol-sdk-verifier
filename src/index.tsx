@@ -24,3 +24,10 @@ if (root) {
 }
 
 ReactDOM.render(<MuiThemeProvider theme={theme}>{Routes}</MuiThemeProvider>, document.getElementById('root'));
+
+setTimeout(() => {
+    const element = document.getElementById("header");
+    if (element) {
+        element.scrollIntoView();
+    }
+}, 0);

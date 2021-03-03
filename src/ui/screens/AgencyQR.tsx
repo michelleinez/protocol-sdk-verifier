@@ -53,11 +53,11 @@ export default class AgencyQR extends React.Component<QRProps, QRState> {
 
     determineCloudAgent = (): IAgent => {
         switch (this.props.agentType) {
-            case "Local_QR":
-                return LocalAgent.init();
-            case "Kiva_QR":
-            default:
-                return KivaAgent.init(auth.getToken());
+        case "Local_QR":
+            return LocalAgent.init();
+        case "Kiva_QR":
+        default:
+            return KivaAgent.init(auth.getToken());
         }
     }
 
@@ -175,7 +175,7 @@ export default class AgencyQR extends React.Component<QRProps, QRState> {
     writeQRtoCanvas() {
         try {
             QRCode.toCanvas(document.getElementById('qr-code'), this.state.inviteUrl || "", {
-                width: 400
+                width: 200
             });
         } catch {
             console.error('The QR code failed to write to the canvas');
@@ -204,7 +204,11 @@ export default class AgencyQR extends React.Component<QRProps, QRState> {
         return (
             <div>
                 <Typography component="h2" variant="h6" gutterBottom className="qr-loading-title">
-                    {this.props.connected ? I18n.getKey('CONNECTION_ESTABLISHED') : I18n.getKey('SCAN_QR')}
+                    <strong>
+                        {this.props.connected ? I18n.getKey('CLICK_VERIFY') : I18n.getKey('SCAN_QR')}
+                    </strong>
+                    <br />
+                    {this.props.connected ? I18n.getKey('CONNECTION_ESTABLISHED') : I18n.getKey('SCAN_QR_INSTRUCTIONS')}
                 </Typography>
                 <div id="qr-box">
                     <canvas id="qr-code"></canvas>
@@ -236,10 +240,12 @@ export default class AgencyQR extends React.Component<QRProps, QRState> {
     renderVerifying() {
         return (
             <div data-cy="verify-qr">
-                <CircularProgress className="dialog-icon verifying"/>
-                <Typography component="h2" variant="h4" gutterBottom className="status-text">
-                    {I18n.getKey('VERIFYING')}
+                <Typography component="h2" variant="h6" gutterBottom className="qr-loading-title">
+                    {I18n.getKey('VERIFYING')}...
                 </Typography>
+                <div id="qr-loader">
+                    <CircularProgress className="dialog-icon verifying"/>
+                </div>
             </div>
         );
     }
@@ -259,7 +265,7 @@ export default class AgencyQR extends React.Component<QRProps, QRState> {
         if (this.state.connectionError) {
             return this.renderError();
         } else if (this.state.verifying) {
-            return this.renderRetrieving(I18n.getKey('VERIFYING'));
+            return this.renderVerifying();
         } else if (this.state.inviteUrl && !this.state.retrievingInviteUrl) {
             return this.renderQRInvite();
         } else {
@@ -268,17 +274,18 @@ export default class AgencyQR extends React.Component<QRProps, QRState> {
     }
 
     render() {
-        const {isConnectionReady} = this.state;
+        const {isConnectionReady, verifying} = this.state;
         return (
             <div id={this.props.agentType} className="flex-block column">
                 <Grid container
                     direction="column"
                     justify="center"
                     alignItems="center">
-                        {this.renderBody()}
+                    {this.renderBody()}
                 </Grid>
                 <QRScreenButtons
                     isConnectionReady={isConnectionReady}
+                    isVerifying={verifying}
                     onClickBack={() => flowController.goTo('BACK')}
                     onSubmit={() => this.startVerification()}
                     onReset={() => this.resetFlow()}
@@ -314,7 +321,7 @@ class QRScreenButtons extends React.Component<QRButtonProps> {
                 </Grid>
                 <Grid item>
                     <Button
-                        disabled={!this.props.isConnectionReady}
+                        disabled={!this.props.isConnectionReady || this.props.isVerifying}
                         type="submit"
                         data-cy="qr-scan-next"
                         className="next button-verify"

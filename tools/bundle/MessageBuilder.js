@@ -10,6 +10,7 @@ const messageMap = {
     BACK: "Standard.back",
     ACCEPT: "Standard.accept",
     VERIFY: "Standard.verify",
+    VERIFYING: "Standard.verifying",
     CONTINUE: "Standard.continue",
     POWERED_BY: "Standard.poweredBy",
     // Confirmation Screen
@@ -24,8 +25,10 @@ const messageMap = {
     QR_NOT_FOUND: "Errors.qr.noConnectionFound",
     NO_EMAIL: "Errors.email.noInput",
     // QR Code
+    CLICK_VERIFY: "QR.text.clickVerify",
     RETRIEVING_QR: "QR.text.retrieving",
     SCAN_QR: "QR.text.scanQR",
+    SCAN_QR_INSTRUCTIONS: "QR.text.scanQRInstructions",
     CONNECTION_ESTABLISHED: "QR.text.connected",
     RESET_FLOW: "QR.text.resetConnection",
     // User Details

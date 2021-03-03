@@ -50,7 +50,7 @@ export default class KivaAgent extends BaseAgent implements IAgent {
         // TODO: Define an actual credential schema structure so that we can know that we're mapping data to actual PII map keys
         const proof: any = {};
         for (let key in response) {
-            let k: string = PII[key].alternateKey || key;
+            let k: string = PII[key]?.alternateKey || key;
             proof[k] = response[key].raw;
         }
         return proof;
@@ -106,32 +106,4 @@ export default class KivaAgent extends BaseAgent implements IAgent {
     getProof(data: any) {
         return this.formatProof(data.presentation.requested_proof.revealed_attrs);
     }
-}
-
-// TODO: Implement verification interfaces
-// TODO: Actually use these
-interface ConnectionInviteResponse {
-    connection_id: string,
-    invitation: ConnectionInvitation,
-    invitation_url: string
-}
-
-interface ConnectionInvitation {
-    "@type": string,
-    "@id": string,
-    serviceEndpoint: string,
-    recipientKeys: string[],
-    label: string
-}
-
-interface ConnectionStatus {
-    connectionId: string,
-    routingState: string,
-    initiator: string,
-    invitation_mode: string,
-    updated_at: string,
-    state: string,
-    invitation_key: string,
-    accept: string,
-    created_at: string
 }

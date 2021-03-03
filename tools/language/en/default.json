@@ -8,6 +8,7 @@
         "back": "Back",
         "accept": "Accept",
         "verify": "Verify",
+        "verifying": "Verifying",
         "continue": "Continue",
         "poweredBy": "Powered by"
     },
@@ -38,9 +39,11 @@
     },
     "QR": {
         "text": {
+            "clickVerify": "Click Verify to continue",
             "retrieving": "Retrieving your QR code. Please be patient...",
-            "scanQR": "Citizen should scan the QR code with their mobile Wallet.",
-            "connected": "Connection established! Please click the \"Verify\" button below...",
+            "scanQR": "Scan QR Code",
+            "scanQRInstructions": "Please scan the QR code with the mobile wallet app",
+            "connected": "Connection established successfully. A proof request will be sent to the user's wallet.",
             "resetConnection": "Reset"
         }
     },

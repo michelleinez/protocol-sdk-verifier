@@ -19,4 +19,5 @@ export interface QRButtonProps {
     onClickBack(): void,
     onReset(): void
     isConnectionReady: boolean,
+    isVerifying: boolean
 }

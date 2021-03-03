@@ -70,12 +70,12 @@ export default class SMSOTPScreen extends React.Component<SMSProps, OTPState> {
 
     renderCurrentScreen() {
         switch (this.state.phoneScreen) {
-            case "phoneInput":
-                return this.renderPhoneInput();
-            case "smsInput":
-                return this.renderOTPInput();
-            default:
-                return "";
+        case "phoneInput":
+            return this.renderPhoneInput();
+        case "smsInput":
+            return this.renderOTPInput();
+        default:
+            return "";
         }
     }
 
@@ -86,7 +86,7 @@ export default class SMSOTPScreen extends React.Component<SMSProps, OTPState> {
                     direction="column"
                     justify="center"
                     alignItems="center">
-                        {this.renderCurrentScreen()}
+                    {this.renderCurrentScreen()}
                 </Grid>
             </div>
         );
@@ -148,19 +148,19 @@ class PhoneNumberScreen extends React.Component<PhoneScreenProps, PhoneState> {
 
     sendTwilioRequest = (body: any): void => {
         SDK.fetchKyc(body, auth.getToken())
-        .then(response => {
-            this.props.setContainerState({
-                smsSent: true,
-                phoneNumber: this.state.phoneNumber,
-                phoneScreen: "smsInput"
+            .then(response => {
+                this.props.setContainerState({
+                    smsSent: true,
+                    phoneNumber: this.state.phoneNumber,
+                    phoneScreen: "smsInput"
+                });
+            })
+            .catch(error => {
+                this.setState({
+                    error,
+                    requestInProgress: false
+                });
             });
-        })
-        .catch(error => {
-            this.setState({
-                error,
-                requestInProgress: false
-            });
-        });
     };
 
     renderInProgress() {
@@ -488,16 +488,16 @@ class SMSStatus extends React.Component<SMSStatusProps> {
     renderBody() {
         const status: string = this.props.status;
         switch (status) {
-            case "progress":
-                return this.renderInProgress(I18n.getKey('REQ_IN_PROGRESS'));
-            case "verifying":
-                return this.renderInProgress(I18n.getKey('VERIFYING'));
-            case "error":
-                return this.renderError();
-            case "success":
-                return this.renderVerified();
-            default:
-                return "";
+        case "progress":
+            return this.renderInProgress(I18n.getKey('REQ_IN_PROGRESS'));
+        case "verifying":
+            return this.renderInProgress(I18n.getKey('VERIFYING'));
+        case "error":
+            return this.renderError();
+        case "success":
+            return this.renderVerified();
+        default:
+            return "";
         }
     }
 
