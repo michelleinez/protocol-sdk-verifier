@@ -15,7 +15,7 @@ export default class BaseAgent implements IBaseAgent {
                 const errorDetails = ` (${e.response.data.code}: ${e.response.data.message})`;
                 msg = e.message + errorDetails;
             }
-            console.log(error);
+            console.error(error);
             return Promise.reject(msg);
         }
     }
