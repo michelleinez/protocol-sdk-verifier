@@ -28,7 +28,20 @@ export default class KivaAgent extends BaseAgent implements IAgent {
         };
         const axiosConfig: AxiosRequestConfig = config;
         this.axiosInstance = axios.create(axiosConfig);
+    }
 
+    fetchProfiles() {
+        debugger;
+        return super.profiles(
+            this.axiosInstance.get('/v2/kiva/api/profiles', {},),
+            (profiles: any) => {
+                debugger;
+                profiles.data.forEach((profile: any) => {
+                    debugger;
+                    console.log(profile.comment)
+                });
+            }
+        );
     }
 
     isConnected(response: any): boolean {

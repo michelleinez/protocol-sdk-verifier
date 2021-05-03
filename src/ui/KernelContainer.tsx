@@ -6,6 +6,7 @@ import {ScreenDispatcher} from "./controllers/ScreenDispatcher";
 
 // Screens
 import ConfirmationScreen from './screens/ConfirmationScreen';
+import VerificationRequirementScreen from './screens/VerificationRequirementScreen';
 import ResultDetails from './screens/ResultDetails';
 import AuthenticationOptionMenu from './screens/AuthenticationOptionMenu';
 
@@ -161,6 +162,14 @@ export class KernelContainer extends React.Component<KernelProps, KernelState> {
         );
     }
 
+    renderVerificationRequirement() {
+        return (
+            <VerificationRequirementScreen
+                integrationName={I18n.getKey('SITE_TITLE')}
+            />
+        )
+    }
+
     renderContent() {
         switch (this.state.step) {
         case 'menu':
@@ -171,6 +180,8 @@ export class KernelContainer extends React.Component<KernelProps, KernelState> {
             return this.renderLoadingScreen();
         case 'confirmation':
             return this.renderConfirmationScreen();
+        case 'verificationRequirement':
+            return this.renderVerificationRequirement();
         default:
             return this.renderScreen(this.state.step);
         }
@@ -205,6 +216,7 @@ export class KernelContainer extends React.Component<KernelProps, KernelState> {
 
 const screenNames: any = {
     confirmation: 'Consent',
+    verificationRequirement: 'VerificationRequirement',
     loading: 'AppLoad',
     details: 'CustomerInfo'
 };
